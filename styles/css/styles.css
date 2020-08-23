@@ -1,3 +1,62 @@
+body {
+  margin: 0;
+  font-family: "Inter", Helvetica, sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 1.4;
+  text-align: center;
+}
 
+.carousel-container {
+  position: relative;
+}
+
+.bg-container, .content-container, .controls-container {
+  position: absolute;
+  width: 100%;
+}
+
+.bg-container, .content-container {
+  min-height: 100vh;
+}
+
+.bg.image {
+  background: url("../../assets/pattern-bg.svg") no-repeat center;
+  background-size: contain;
+  margin: 0 20px;
+  height: 100vw;
+}
+
+.content.image {
+  padding: 60px;
+}
+
+.content.image img {
+  max-width: 100%;
+}
+
+.text {
+  height: 200px;
+}
+
+.bg.text {
+  background: url("../../assets/pattern-quotes.svg") no-repeat top;
+  background-size: 3.5em;
+}
+
+.content.text {
+  padding: 20px;
+}
+
+.bg.bottom {
+  background: url("../../assets/pattern-curve.svg") no-repeat left;
+  height: 75px;
+  background-size: contain;
+}
+
+.controls-container {
+  top: calc(100vw - 80px);
+  text-align: center;
+}
 
 /*# sourceMappingURL=styles.css.map */

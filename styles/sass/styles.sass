@@ -5,4 +5,67 @@ $font-stack: 'Inter', Helvetica, sans-serif
 $font-light: 300
 $font-regular: 500
 $font-bold: 700
-$font-size: 32px
+$font-size-desktop: 32px
+$font-size-mobile: 18px
+
+// GENERAL STUFF
+body
+  margin: 0
+  font:
+    family: $font-stack
+    weight: $font-light
+    size: $font-size-mobile
+  line-height: 1.4
+  text-align: center
+
+// CONTAINERS
+.carousel-container
+  position: relative
+
+.bg-container, .content-container, .controls-container
+  position: absolute
+  width: 100%
+
+.bg-container, .content-container
+  min-height: 100vh
+
+
+// IMAGES
+// .image
+
+.bg.image
+  background: url("../../assets/pattern-bg.svg") no-repeat center
+  background-size: contain
+  margin: 0 20px
+  height: 100vw
+
+.content.image
+  padding: 60px
+
+.content.image img
+  max-width: 100%
+
+// TEXT
+.text
+  height: 200px
+
+.bg.text
+  background: url("../../assets/pattern-quotes.svg") no-repeat top
+  background-size: 3.5em
+
+.content.text
+  padding: 20px
+
+// BOTTOM SHAPE
+.bg.bottom
+  background: url("../../assets/pattern-curve.svg") no-repeat left
+  height: 75px
+  background-size: contain
+
+
+// CONTROLS
+.controls-container
+  top: calc(100vw - 80px)
+  text-align: center
+// .controls-container button
+// #btn-prev, #btn-next
