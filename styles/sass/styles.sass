@@ -1,3 +1,10 @@
+/* TODO:
+ * - Fix over-size width issue on medium viewports
+ *   - Possibly related to image size?
+ * - Add js for carousel functionality
+ * -
+ */
+
 // STYLEGUIDE
 $col-primary: hsl(240, 38%, 20%)
 $col-secondary: hsl(240, 18%, 77%)
@@ -10,7 +17,10 @@ $font-size-medium: 22px
 $font-size-large: 32px
 $shadow: 0px 30px 35px -25px rgba(32,32,70,0.4)
 
-// GENERAL STUFF
+/*
+ * BASIC LAYOUT FOR:
+ * Small viewports, between 375px-659px wide
+ */
 *
   box-sizing: border-box
 
@@ -27,11 +37,10 @@ body
 // CONTAINERS
 .container
   margin: 0 auto
-  height: 100vh
+  min-height: 100vh
 
 .carousel-container
   position: relative
-  max-width: 1440px
   height: 100%
   max-height: 800px
 
@@ -106,26 +115,77 @@ body
   margin-left: -10px
 
 
+/*
+ * RESPONSIVE CHANGES FOR:
+ * Medium viewports, between 660px-999px wide
+ */
+
+@media screen and (min-width: 660px)
+  body
+    font-size: $font-size-medium
+    text-align: left
+  .carousel-container
+    height: 100%
+  .bg, .content
+    width: 60%
+    position: absolute
+  .bg.image, .content.image, .controls-container
+    right: 30px
+    top: 0
+  .bg.image
+    right: -30px
+  // IMAGES
+  .bg.image
+    margin: 50px
+    height: 100%
+    max-height: 660px
+  .content.image
+    padding-top: 110px
+    text-align: center
+  .content.image img
+    max-width: 650px
+  // TEXT
+  .text
+    height: 350px
+    width: 60%
+    top: 210px
+  .bg.text
+    background-size: 3.5em
+  .attribution
+    font-size: $font-size-small
+  .attr-name, .attr-role
+    display: inline-block
+  // BOTTOM SHAPE
+  .bg.bottom
+    bottom: 0
+    height: 120px
+  // CONTROLS
+  .controls-container
+    top: 620px
+    left: calc(50% + 110px)
+    text-align: left
+    width: 150px
+  .controls-container button
+    width: 50px
+    height: 50px
+
 
 /*
- * RESPONSIVE CHANGES FOR LARGE VIEWPORTS
+ * RESPONSIVE CHANGES FOR:
+ * XL viewports, over 1400px wide
  */
 
 @media screen and (min-width: 1000px)
   body
     font-size: $font-size-large
-    text-align: left
   .carousel-container
-    height: 100%
     max-height: 660px
+    max-width: 1440px
     margin: 0 auto
   .bg, .content
-    width: 60%
     max-width: 770px
-    position: absolute
   .bg.image, .content.image, .controls-container
     right: 30px
-    // right: 0
     top: 0
   .bg.image
     right: -30px
@@ -142,14 +202,11 @@ body
   // TEXT
   .text
     height: 300px
-    width: 48%
-    top: 210px
-
   .bg.text
     background-size: 3.5em
   .content.text
     padding: 20px 0 0 40px
-    left: 140px
+    left: 8%
   .attribution
     font-size: $font-size-medium
   .attr-name, .attr-role
@@ -162,8 +219,4 @@ body
   .controls-container
     top: 620px
     left: calc(50% + 110px)
-    text-align: left
     width: 150px
-  .controls-container button
-    width: 50px
-    height: 50px
