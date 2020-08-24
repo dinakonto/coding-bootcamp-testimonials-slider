@@ -114,10 +114,15 @@ body
   border-radius: 0 50px 50px 0
   margin-left: -10px
 
-.content-container
-  display: none
+.slide
+  visibility: hidden
+  opacity: 0
+  transition-property: opacity
+  transition-duration: 0.5s
+  transition-timing-function: linear
 .current
-  display: block
+  visibility: visible
+  opacity: 100
 
 
 /*
