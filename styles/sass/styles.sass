@@ -1,7 +1,3 @@
-/* TODO:
- * - Button interaction styles
- */
-
 // STYLEGUIDE
 $col-primary: hsl(240, 38%, 20%)
 $col-secondary: hsl(240, 18%, 77%)
@@ -97,7 +93,15 @@ body
 .controls-container button:last-of-type
   border-radius: 0 50px 50px 0
   margin-left: -10px
+.controls-container button:hover,
+.controls-container button:focus
+  background: #f2f2f2
+  cursor: pointer
+  outline: none
+.controls-container button:active
+  background: #e2e2e2
 
+// SLIDE VISIBILITY
 .slide
   visibility: hidden
   opacity: 0
