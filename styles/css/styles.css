@@ -1,11 +1,10 @@
 /* TODO:
  * * - Fix over-size width issue on medium viewports
  * *   - Possibly related to image size?
- * * - Add js for carousel functionality
  * * -
  * */
 /* * BASIC LAYOUT FOR:
- * * Small viewports, between 375px-659px wide
+ * * Small viewports, over 375px wide
  * */
 * {
   box-sizing: border-box;
@@ -21,15 +20,10 @@ body {
   text-align: center;
 }
 
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-}
-
 .carousel-container {
   position: relative;
   height: 100%;
-  max-height: 800px;
+  width: 100%;
 }
 
 .bg-container, .content-container, .controls-container {
@@ -38,7 +32,7 @@ body {
 }
 
 .bg-container, .content-container {
-  min-height: 100vh;
+  height: 100vh;
 }
 
 .bg.image {
@@ -46,6 +40,7 @@ body {
   background-size: contain;
   margin: 0 20px;
   height: 100vw;
+  max-height: calc(540px + 120px);
 }
 
 .content.image {
@@ -130,154 +125,158 @@ body {
 }
 
 /* * RESPONSIVE CHANGES FOR:
- * * Medium viewports, between 660px-999px wide
+ * * Medium viewports, over 600px wide
  * */
-@media screen and (min-width: 660px) {
-  body {
-    font-size: 22px;
-    text-align: left;
+@media screen and (min-width: 600px) {
+  .bg-container, .content-container {
+    min-height: calc(50vw + 30px);
   }
 
-  .carousel-container {
-    height: 100%;
+  .bg-container, .content-container, .controls-container {
+    width: 100%;
+    height: 200px;
   }
 
   .bg, .content {
-    width: 60%;
+    width: 50%;
     position: absolute;
   }
 
-  .bg.image, .content.image, .controls-container {
-    right: 30px;
+  .image, .controls-container {
     top: 0;
+    right: 20px;
   }
 
   .bg.image {
-    right: -30px;
-  }
-
-  .bg.image {
-    margin: 50px;
-    height: 100%;
-    max-height: 660px;
+    margin: 0;
+    height: 50vw;
+    max-height: 50vw;
   }
 
   .content.image {
-    padding-top: 110px;
     text-align: center;
   }
 
   .content.image img {
-    max-width: 650px;
+    max-width: 100%;
   }
 
   .text {
-    height: 350px;
+    top: 5vw;
+    height: 250px;
+    text-align: left;
+  }
+
+  .text.content {
     width: 60%;
-    top: 210px;
+  }
+
+  .bg.bottom {
+    bottom: 0;
+    height: 100px;
+  }
+
+  .controls-container {
+    top: calc(50vw - 80px);
+    left: 60%;
+    text-align: left;
+    width: 100px;
+  }
+}
+/* * RESPONSIVE CHANGES FOR:
+ * * Medium-Large viewports, over 750px wide
+ * */
+@media screen and (min-width: 750px) {
+  .text {
+    top: 10vw;
+  }
+
+  .text.content {
+    margin-left: 20px;
+  }
+}
+/* * RESPONSIVE CHANGES FOR:
+ * * Large viewports, over 850px wide
+ * */
+@media screen and (min-width: 850px) {
+  .text.content {
+    font-size: 22px;
+    margin-left: 60px;
+  }
+}
+/* * RESPONSIVE CHANGES FOR:
+ * * Extra-Large viewports, over 1200px wide
+ * */
+@media screen and (min-width: 1200px) {
+  .bg-container, .content-container {
+    max-height: 800px;
+  }
+
+  .carousel-container {
+    max-width: 1440px;
+    max-height: 800px;
+    margin: 0 auto;
+  }
+
+  .bg.image {
+    height: 800px;
+    max-height: 800px;
+    margin-right: 60px;
+  }
+
+  .content.image {
+    margin-top: 5%;
+    max-width: 90%;
+    margin-right: 40px;
+  }
+
+  .text {
+    top: 200px;
+  }
+
+  .content.text {
+    font-size: 32px;
+    margin-left: 150px;
+    width: 48%;
   }
 
   .bg.text {
-    background-size: 3.5em;
+    background-size: 6em;
+  }
+
+  .bg.bottom {
+    height: 150px;
   }
 
   .attribution {
     font-size: 18px;
   }
 
-  .attr-name, .attr-role {
-    display: inline-block;
-  }
-
-  .bg.bottom {
-    bottom: 0;
-    height: 120px;
-  }
-
   .controls-container {
-    top: 620px;
-    left: calc(50% + 110px);
-    text-align: left;
+    top: calc(50vw - 25px);
     width: 150px;
   }
 
   .controls-container button {
-    width: 50px;
-    height: 50px;
+    height: 60px;
+    width: 60px;
+    -webkit-box-shadow: 0px 30px 35px -25px rgba(32, 32, 70, 0.4);
+    -moz-box-shadow: 0px 30px 35px -25px rgba(32, 32, 70, 0.4);
+    box-shadow: 0px 30px 35px -25px rgba(32, 32, 70, 0.4);
   }
 }
 /* * RESPONSIVE CHANGES FOR:
- * * XL viewports, over 1400px wide
+ * * Maximum container width, over 1440px wide
  * */
-@media screen and (min-width: 1000px) {
-  body {
-    font-size: 32px;
-  }
-
-  .carousel-container {
-    max-height: 660px;
-    max-width: 1440px;
-    margin: 0 auto;
-  }
-
-  .bg, .content {
-    max-width: 770px;
-  }
-
-  .bg.image, .content.image, .controls-container {
-    right: 30px;
-    top: 0;
-  }
-
-  .bg.image {
-    right: -30px;
-  }
-
-  .bg.image {
-    margin: 50px;
-    height: 100%;
-    max-height: 660px;
-  }
-
-  .content.image {
-    padding-top: 110px;
-    text-align: center;
-  }
-
-  .content.image img {
-    max-width: 650px;
-  }
-
-  .text {
-    height: 300px;
-  }
-
-  .bg.text {
-    background-size: 3.5em;
-  }
-
-  .content.text {
-    padding: 20px 0 0 40px;
-    left: 8%;
-  }
-
-  .attribution {
-    font-size: 22px;
-  }
-
-  .attr-name, .attr-role {
-    display: inline-block;
-  }
-
-  .bg.bottom {
-    bottom: 0;
-    height: 120px;
+@media screen and (min-width: 1350px) {
+  .bg-container, .content-container, .carousel-container {
+    min-height: inherit;
+    height: 800px;
+    max-height: 800px;
   }
 
   .controls-container {
-    top: 620px;
-    left: calc(50% + 110px);
-    width: 150px;
+    top: 650px;
   }
 }
 
