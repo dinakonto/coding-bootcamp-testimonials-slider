@@ -1,6 +1,5 @@
 /* TODO:
  * * - Button interaction styles
- * * - Fontawesome button icons
  * */
 /* * BASIC LAYOUT FOR:
  * * Small viewports, over 375px wide
@@ -99,6 +98,10 @@ body {
   width: 40px;
   border: none;
   background: white;
+}
+
+.controls-container button svg {
+  color: grey;
 }
 
 .controls-container button:first-of-type {
@@ -259,6 +262,7 @@ body {
   .controls-container button {
     height: 60px;
     width: 60px;
+    font-size: 20px;
     -webkit-box-shadow: 0px 30px 35px -25px rgba(32, 32, 70, 0.4);
     -moz-box-shadow: 0px 30px 35px -25px rgba(32, 32, 70, 0.4);
     box-shadow: 0px 30px 35px -25px rgba(32, 32, 70, 0.4);
